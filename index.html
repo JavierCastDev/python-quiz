@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificación Python | Evaluación Técnica</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Librería requerida para generar la imagen del certificado -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- PANTALLA 1: INICIO (Bienvenida) -->
+        <div id="screen-welcome" class="screen active">
+            <div class="welcome-content">
+                <div class="logo-title">
+                    <img src="python-logo.png" alt="Logo Python" class="logo-img">
+                    <h1>Python <span>Certification</span></h1>
+                </div>
+
+                <p>Bienvenido al sistema de evaluación de competencias.</p>
+
+                <div class="info-cards">
+                    <div class="info-card">
+                        <strong>50 Preguntas</strong>
+                        <span>Cobertura completa del lenguaje</span>
+                    </div>
+                    <div class="info-card">
+                        <strong>100 Puntos</strong>
+                        <span>2 puntos por acierto</span>
+                    </div>
+                    <div class="info-card">
+                        <strong>Certificado</strong>
+                        <span>Descargable al finalizar</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="username" style="display:none;">Nombre Completo</label>
+                    <input type="text" id="username" placeholder="Ingresa tu Nombre Completo para el Certificado"
+                        autocomplete="off">
+                </div>
+
+                <button class="btn" id="btn-start">Comenzar Evaluación</button>
+            </div>
+        </div>
+
+        <!-- PANTALLA 2: CUESTIONARIO (Quiz) -->
+        <div id="screen-quiz" class="screen">
+            <div class="quiz-header">
+                <div class="progress-info">
+                    <span id="question-counter">Pregunta 1/50</span>
+                    <span id="score-temp">Score Actual: 0</span>
+                </div>
+                <div class="progress-track">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <h2 id="question-text">Cargando pregunta...</h2>
+                <div id="options-container" class="options-grid">
+                    <!-- Las opciones se inyectarán aquí mediante JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- PANTALLA 3: RESULTADOS -->
+        <div id="screen-results" class="screen">
+            <div class="results-content">
+                <h2>Evaluación Finalizada</h2>
+                <p>Aquí está tu desglose de rendimiento:</p>
+
+                <div class="score-circle">
+                    <span id="final-score">0</span>
+                </div>
+
+                <p id="result-message" class="feedback-msg">Mensaje de feedback</p>
+
+                <!-- Panel de recomendaciones (Solo visible si hay errores) -->
+                <div id="topics-panel" class="topics-panel" style="display: none;">
+                    <h3>📚 Plan de Estudio Recomendado</h3>
+                    <p>Basado en tus errores, te sugerimos repasar:</p>
+                    <ul id="topics-list">
+                        <!-- Temas inyectados aquí por JS -->
+                    </ul>
+                </div>
+
+                <button id="download-btn" class="btn">
+                    📥 Descargar Mi Certificado
+                </button>
+                <br>
+                <button class="btn btn-secondary" id="btn-restart">
+                    Intentar de Nuevo
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+
+    <footer class="site-footer">
+        <p>
+            Python es una marca registrada de la <strong>Python Software Foundation</strong>.
+        </p>
+        <p>
+            Este sitio web es un proyecto educativo con fines de portafolio y no está afiliado, respaldado ni patrocinado por la PSF.
+        </p>
+    </footer>
+
+
+    <!-- ELEMENTO OCULTO: PLANTILLA DEL CERTIFICADO-->
+    <div id="certificate-wrapper">
+        <div id="certificate-node" class="certificate standard">
+            <h1 class="cert-header">CERTIFICADO</h1>
+            <p class="cert-subheader">DE COMPETENCIA TÉCNICA</p>
+
+            <div class="cert-body">
+                <p>Se otorga el presente reconocimiento a:</p>
+                <div class="cert-name" id="cert-name-display">Nombre del Usuario</div>
+                <p>Por haber completado satisfactoriamente la evaluación de</p>
+                <h2 style="font-size: 2.5rem; margin: 10px 0;">PYTHON PROGRAMMING</h2>
+
+                <div class="cert-score" id="cert-score-display">Puntaje: 0/100</div>
+            </div>
+
+            <div class="cert-footer">
+                <div class="date" id="cert-date">Fecha: 01/01/2025</div>
+                <div class="id">ID: PY-QUIZ-EVAL</div>
+                <div class="signature">python-quiz.app</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
