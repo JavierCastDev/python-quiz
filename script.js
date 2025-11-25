@@ -212,6 +212,20 @@ function generateCertificate() {
     document.getElementById('cert-score-display').innerText = `Puntaje: ${score} / ${questions.length * 2}`;
     document.getElementById('cert-date').innerText = `Fecha: ${new Date().toLocaleDateString()}`;
 
+    document.getElementById('cert-name-display').innerText = userName;
+    document.getElementById('cert-score-display').innerText = `Puntaje: ${score} / ${questions.length * 2}`;
+    document.getElementById('cert-date').innerText = `Fecha: ${new Date().toLocaleDateString()}`;
+
+    // Crea un string aleatorio. Ej: PY-839201-X7
+    const randomNum = Math.floor(Math.random() * 10000);
+    const timeStamp = Date.now().toString().slice(-4); // Últimos 4 dígitos del tiempo
+    const uniqueID = `ID: PY-${timeStamp}-${randomNum}`;
+    
+    document.getElementById('cert-id').innerText = uniqueID;
+
+    // Coloca la URL real de la página en el certificado
+    document.getElementById('cert-sign').innerText = window.location.hostname;
+
     // 2. Elegir estilo (Gold vs Standard)
     const maxScore = questions.length * 2;
     if (score === maxScore) {
